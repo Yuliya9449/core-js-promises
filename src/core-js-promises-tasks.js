@@ -64,6 +64,7 @@ function getFirstResolvedPromiseResult(promises) {
   return Promise.any(promises);
 }
 
+// !  4
 /**
  * Returns containing the value of the first promise of a resolved or a rejected.
  *
@@ -83,8 +84,8 @@ function getFirstResolvedPromiseResult(promises) {
  * [promise3, promise6, promise2] => Promise rejected with 2
  * [promise3, promise4, promise6] => Promise rejected with 6
  */
-function getFirstPromiseResult(/* promises */) {
-  throw new Error('Not implemented');
+function getFirstPromiseResult(promises) {
+  return Promise.race(promises);
 }
 
 /**
