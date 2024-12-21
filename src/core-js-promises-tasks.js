@@ -4,7 +4,7 @@
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise    *
  *                                                                                             *
  ********************************************************************************************* */
-
+// !  1
 /**
  * Returns a Promise that is fulfilled with the input number if the number is non-negative (including zero),
  * and rejected if the number is negative.
@@ -17,10 +17,19 @@
  * 0    => promise that will be fulfilled
  * 1    => promise that will be fulfilled
  */
-function getPromise(/* number */) {
-  throw new Error('Not implemented');
+function getPromise(number) {
+  return new Promise((resolve, reject) => {
+    if (number >= 0) {
+      resolve(number);
+    }
+
+    if (number < 0) {
+      reject(new Error(`Number is negative: ${number}`));
+    }
+  });
 }
 
+// !  2
 /**
  * Returns a promise that will always fulfilled and return a value of success or fail.
  * It returns a promise that is always fulfilled with a string value: 'success' if the original promise was fulfilled,
